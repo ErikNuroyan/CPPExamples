@@ -29,6 +29,7 @@ class B:public A{
 int main() {
     A obj_A={5,4.5,"Something"};
     B obj_B={7,8.0,"Something else",9};
+    obj_B.getA_Derived();//compile error 
 }
 
 A::A(int a_1,double b_1,std::string c_1):a(a_1),b(b_1),c(c_1){
@@ -47,3 +48,6 @@ std::string A::getC(){
 B::B(int a_1,double b_1,std::string c_1,int d_1):A(a_1,b_1,c_1),d(d_1){
     std::cout<<"Constructor B called"<<std::endl;
 };
+int B::getA_Derived(){
+    return this->a;     //a is private in this context, compile error
+}
