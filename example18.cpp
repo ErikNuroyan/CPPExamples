@@ -16,7 +16,7 @@ int main() {
     int * buffer=new int[10]; //10*4 bytes = 40 bytes of memory
     MyStr* str_ptr=new (buffer) MyStr{5}; //Store MyStr starting from buffer[0]
     cout<<buffer[0];
-    
+    str_ptr->~MyStr(); //Calling the destructor explicitly is a must to free the memory
     
     return 0;
 }
